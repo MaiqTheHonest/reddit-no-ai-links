@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "URL Change Logger",
+  "version": "1.0.0",
+  "description": "Logs to the console whenever the page URL changes (SPA or MPA).",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["links.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["links.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
