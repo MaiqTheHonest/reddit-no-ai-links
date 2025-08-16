@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit No AI Hyperlinks",
+  "version": "1.0.0",
+  "description": "Removes the arbitrarily inserted Reddit AI search/overview hyperlinks they added and kept in since July 2025",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["links.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
