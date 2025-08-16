@@ -1,4 +1,3 @@
-'use strict';
 
 (function () {
   // Avoid double-injecting
@@ -42,7 +41,4 @@
     observer.observe(base, { subtree: true, childList: true, characterData: true });
   } catch (_) {}
 })();
-
-
-
 
