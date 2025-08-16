@@ -18,7 +18,6 @@
       script.remove();
       if (lastUrl.includes('comments')) {
         waitForElm('shreddit-comment-tree').then(() => {
-          console.log('initial run');
           runLinkCleaner();
         });
       };
@@ -35,7 +34,6 @@
 
       if (lastUrl.includes('comments')) {
         waitForElm('shreddit-comment-tree').then(() => {
-          console.log('Element is ready');
           runLinkCleaner();
         });
       }
@@ -51,7 +49,6 @@
 
 
 function runLinkCleaner() {
-  console.log("ran");
   let count = sessionStorage.getItem("counter") ?? 0;
   const svgs = Array.from(document.querySelectorAll('a svg[icon-name="search-outline"]'));
   if (svgs.length > 0) {
