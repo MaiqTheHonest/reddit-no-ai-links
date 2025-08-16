@@ -4,6 +4,8 @@
 // "shreddit-comment-tree", the comment section to be visible before removing links
 // "comments", the part of a url indicating that it is a post and not a feed
 
+
+
 (function () {
   // inject script as a child of head or documentElement (they are usually present)
   const inject = () => {
@@ -14,14 +16,14 @@
     (document.head || document.documentElement).appendChild(script);
     script.onload = () => {
       script.remove();
-      waitForElm('shreddit-comment-tree').then(() => {
-        console.log('initial run');
-        runLinkCleaner();
-      });
+      if (lastUrl.includes('comments')) {
+        waitForElm('shreddit-comment-tree').then(() => {
+          console.log('initial run');
+          runLinkCleaner();
+        });
+      };
     };
   };
-  
-  
   
   // listen for custom urlchange event
   let lastUrl = location.href;
@@ -29,6 +31,7 @@
     const current = location.href;
     if (current !== lastUrl) {
       lastUrl = current;
+      chrome.storage.local.set({ linkCount: 0 });
 
       if (lastUrl.includes('comments')) {
         waitForElm('shreddit-comment-tree').then(() => {
@@ -40,8 +43,6 @@
   };
 
   window.addEventListener('urlchange', logIfUrlChanged, true);
-  window.addEventListener('popstate', logIfUrlChanged, true);
-  window.addEventListener('hashchange', logIfUrlChanged, true);
 
   inject();
 
@@ -78,7 +79,7 @@ function runLinkCleaner() {
     });
   }
 
-  // chrome.storage.local.set({ linkCount: count });
+  chrome.storage.local.set({ linkCount: count });
 }
 
 
