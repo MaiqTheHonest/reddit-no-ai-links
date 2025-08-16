@@ -1,8 +1,13 @@
 Chrome(ium) extension to remove the AI overview / search hyperlinks from Reddit posts and comments. 
 
+</br>
 
 <img width="472" height="225" alt="aireddit - Copy" src="https://github.com/user-attachments/assets/e115428a-d4a3-4fd7-bc55-129e96d6ff50" />
 
+
+</br>
+
+</br>
 
 ### Usage:
 
