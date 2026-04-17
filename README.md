@@ -16,10 +16,12 @@ Chrome(ium) extension to remove the AI overview / search hyperlinks from Reddit 
 2. Launch Chrome or your Chromium-based browser.
    
 3. Go to Extensions -> Manage Extensions.
+
+4. In the top right corner, enable _Developer Mode_.
    
-4. In the top left corner click on _Load Unpacked_.
+5. In the top left corner click on _Load Unpacked_.
    
-5. Select the dowloaded repo folder.
+6. Select the dowloaded repo folder.
 
 </br>
 
